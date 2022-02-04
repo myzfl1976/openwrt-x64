@@ -21,6 +21,7 @@ git remote add origin https://github.com/coolsnowwolf/lede.git
 git config core.sparseCheckout true
 echo "package/lean" >> .git/info/sparse-checkout
 git pull origin master
+cd ..
 mv test345cxv/package/* package
 rm -rf test345cxv
 cd package/lean
