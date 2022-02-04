@@ -14,5 +14,14 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+cd package
+git init
+git remote add origin https://github.com/coolsnowwolf/lede.git
+git config core.sparseCheckout true
+echo "package/lean" >> ./git/info/sparse-checkout
+git pull origin master
+cd lean
+git clone --depth=1 https://github.com/fw876/helloworld.git
+cd ../..
+#echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
